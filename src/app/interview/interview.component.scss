@@ -1,0 +1,34 @@
+.container{
+        display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    .card{
+      cursor: pointer;
+    }
+}
+.search-box{
+  input{
+    border: 1px solid #a9a3a3;
+    box-shadow: 0px 1px 0px 0 #9e9191;
+  }
+  span{
+    color: #c5c5d2;
+  }
+  .drop-down{
+    select{
+      width:100%;
+      border-radius: 5px;
+      padding: 6px;
+      box-shadow: 0px 1px 0px 0 #9e9191;
+    }
+  }
+}
+h3{
+  color: #837f7f;
+}
+.text{
+  background-color: red;
+}
+.text1{
+  background-color: green;
+}
