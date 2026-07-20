@@ -1,0 +1,52 @@
+<nav class="navbar navbar-light bg-light">
+    <form class="container-fluid">
+        <div
+            class="form-group w-100 gap-2 search-box m-auto mb-4 mt-2 d-flex justify-content-center align-items-baseline">
+            <div class="w-50">
+                <input class="form-control w-100" type="text" name="searchTerm" placeholder="Search Your Question"
+                    [(ngModel)]="searchField" (keyup)="searchFilter()" />
+                <span>Current Search: {{searchField}} </span>
+            </div>
+            <div class="drop-down">
+                <select name="" id="" (change)="onChange($event)">
+                    <option value="" [disabled]="true">--Select Your Technology--</option>
+                    <option value="angular">Angular</option>
+                    <option value="java">Java</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</nav>
+@if(selectedDropDown === "angular"){
+<div class="container">
+    @for(question of searchData; track question.id){
+    <div class="card" (click)="onQuestionClick(question)" data-target="#exampleModalLive1">
+        <div class="card-header">
+            <h5 class="card-title" [ngClass]="searchField == question.title?'text':''">{{question.title}}</h5>
+        </div>
+
+        <div class="card-body">
+            <p class="card-text">{{question.description}}</p>
+        </div>
+    </div>
+    }
+</div>
+}@else if(selectedDropDown === "java"){
+<div class="container">
+    @for(question of searchData; track question.id){
+    <div class="card" (click)="onQuestionClick(question)" data-target="#exampleModalLive1">
+        <div class="card-header">
+            <h5 class="card-title">{{question.title}}</h5>
+        </div>
+
+        <div class="card-body">
+            <p class="card-text">{{question.description}}</p>
+        </div>
+    </div>
+    }
+</div>
+}
+
+
+@if(searchData.length <= 0){ <h3 class="text-center">Data is Not Found..</h3>
+    }
