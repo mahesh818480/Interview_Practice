@@ -1,34 +1,65 @@
-.container{
-        display: grid;
-    gap: 30px;
-    grid-template-columns: repeat(4, 1fr);
-    .card{
-      cursor: pointer;
-    }
+.container {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+
+  .card {
+    cursor: pointer;
+  }
 }
-.search-box{
-  input{
+
+.search-box {
+  input {
     border: 1px solid #a9a3a3;
     box-shadow: 0px 1px 0px 0 #9e9191;
   }
-  span{
+
+  input:focus {
+    border: 1px solid #000;
+  }
+
+  span {
     color: #c5c5d2;
   }
-  .drop-down{
-    select{
-      width:100%;
+
+  .drop-down {
+    select {
+      width: 100%;
       border-radius: 5px;
       padding: 6px;
       box-shadow: 0px 1px 0px 0 #9e9191;
     }
   }
+
+  .quiz-container {
+    button {
+      padding: 5px 37px;
+      background: none;
+      box-shadow: 0px 1px 0px 0 #9e9191;
+      border: 1px solid;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #b31d39ed;
+      color: #fff;
+    }
+
+    button:active {
+      box-shadow:
+        inset -2px -2px 3px #97939b,
+    }
+  }
 }
-h3{
+
+h3 {
   color: #837f7f;
 }
-.text{
+
+.text {
   background-color: red;
 }
-.text1{
+
+.text1 {
   background-color: green;
 }

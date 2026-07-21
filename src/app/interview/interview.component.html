@@ -14,9 +14,13 @@
                     <option value="java">Java</option>
                 </select>
             </div>
+            <div class="quiz-container">
+                <button (click)="onQuizPage()">QUIZ</button>
+            </div>
         </div>
     </form>
 </nav>
+@if(!isSelectQuiz){
 @if(selectedDropDown === "angular"){
 <div class="container">
     @for(question of searchData; track question.id){
@@ -46,7 +50,7 @@
     }
 </div>
 }
-
-
-@if(searchData.length <= 0){ <h3 class="text-center">Data is Not Found..</h3>
+@if(searchData.length <= 0){ <h3 class="text-center">Data is Not Found..</h3>}
+    }@else{
+    <app-quiz [isValue]="isSelectQuiz"></app-quiz>
     }
