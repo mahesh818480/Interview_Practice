@@ -1,0 +1,23 @@
+<div class="category d-flex justify-content-around mb-4">
+    <button>Easy</button>
+    <button>Medium</button>
+    <button>Advanced</button>
+</div>
+@for (question of angularQuizQns; track question.id;let i =$index){
+<div class="container w-75">
+    <div class="question_list mb-4">
+        <h4 [ngClass]="isSubmited && question.selectedOption !== question.answer?'wrongAnswer':''"><span>{{i+1}}.
+            </span> {{question.question}}</h4>
+        @for( option of question.options; track $index){
+        <div class="m-3 mr-3">
+            <input type="radio" [name]="'q' + question.id" [value]="option" (change)="onChange(option)"
+                [(ngModel)]="question.selectedOption">&nbsp;
+            <label for="">{{option}}</label>
+        </div>
+        }
+    </div>
+</div>
+}
+<p>Correct Answers: {{this.correctAnswers.length}}</p>
+<p>Wrong Answers: {{angularQuizQns.length-this.correctAnswers.length}}</p>
+<button (click)="onSubmit()">Submit</button>

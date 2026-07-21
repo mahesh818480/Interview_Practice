@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { QuestionService } from '../services/question.service';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { QuizComponent } from '../quiz/quiz.component';
+
 @Component({
   selector: 'app-interview',
   standalone: true,
-  imports: [NgbModule, FormsModule,CommonModule],
+  imports: [NgbModule, FormsModule, CommonModule, QuizComponent],
   templateUrl: './interview.component.html',
   styleUrl: './interview.component.scss'
 })
@@ -16,9 +19,11 @@ export class InterviewComponent {
   searchField = '';
   searchData: any[] = [];
   dropDown = '';
-  selectedDropDown: string='angular';
-  constructor(private questionService: QuestionService, private modalService: NgbModal,) { }
+  selectedDropDown: string = 'angular';
+  isSelectQuiz: Boolean = false;
+  constructor(private questionService: QuestionService, private route: Router, private modalService: NgbModal,) { }
   questions: any[] = [];
+
   ngOnInit() {
     this.questions = this.questionService.getAngularQuestion();
     this.searchData = this.questions;
@@ -37,6 +42,7 @@ export class InterviewComponent {
     modalRef.componentInstance.question = question;
   }
   onChange(event: any) {
+    this.isSelectQuiz = false;
     const value = event.target.value;
     this.selectedDropDown = value;
     if (this.selectedDropDown === "java") {
@@ -44,5 +50,8 @@ export class InterviewComponent {
     } else {
       this.searchData = this.questions;
     }
+  }
+  onQuizPage() {
+    this.isSelectQuiz = true;
   }
 }
