@@ -1,5 +1,6 @@
 import { Component, Input, SimpleChange } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ANGULARQUIZ, QUIZQUESTIONS } from '../data/angular-quiz';
 
 @Component({
   selector: 'app-dialog-box',
@@ -9,12 +10,14 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './dialog-box.component.scss'
 })
 export class DialogBoxComponent {
-  constructor(public activeModal: NgbActiveModal){}
-    @Input() question: any;
-    ngOnInit(){
-      console.log(this.question,'===')
-    }
-    ngOnChanges(changes:SimpleChange){
-      console.log('chnage====',this.question)
-    }
+  constructor(public activeModal: NgbActiveModal) { }
+  @Input() question: any;
+  @Input() correctAnswers: any;
+  @Input() missingQuestion: any;
+  @Input() angularQuizQns!: ANGULARQUIZ[];
+  ngOnInit() {
+  }
+  onContinue() {
+    this.activeModal.close('continue')
+  }
 }
