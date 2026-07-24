@@ -13,14 +13,26 @@
     }
 }
 
-.container {
-    .question_list {
-        h4 {
-            font-family: emoji;
-        }
+.questions {
+    box-shadow: 0px 0px 1px 0px;
+    border-radius: 5px;
 
-        .wrongAnswer {
-            color: #b31d39ed;
+    .container {
+        border-bottom: 1px solid #ccc2c2;
+        border-radius: 5px;
+
+        .question_list {
+            h4 {
+                font-family: emoji;
+            }
+
+            .selected {
+                color: #ead638 !important;
+            }
+
+            .wrongAnswer {
+                color: #b31d39ed;
+            }
         }
     }
 }

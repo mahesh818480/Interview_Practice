@@ -1,18 +1,40 @@
-<div class="modal-header">
-	<h4 class="modal-title">Hi there!</h4>
-	<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-</div>
-<div class="modal-body">
-	<div class="card lesson-border">
-		<div class="card-body">
-			<h5 class="card-title">{{question.title}}</h5>
-			<p class="card-text"><b>Description: </b>{{question.description}}</p>
-			<pre class="card-text"><b>Code: </b>{{question.starterCode}}</pre>
+<div>
+	<div class="modal-header">
+		<h4 class="modal-title">Hi there!</h4>
+		<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	@if(question){
+	<div class="modal-body">
+		<div class="card lesson-border">
+			<div class="card-body">
+				<h5 class="card-title">{{question.title}}</h5>
+				<p class="card-text"><b>Description: </b>{{question.description}}</p>
+				<pre class="card-text"><b>Code: </b>{{question.starterCode}}</pre>
+			</div>
 		</div>
 	</div>
-</div>
-<div class="modal-footer">
-	<button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+	</div>
+	}
+	@if(correctAnswers?.length > 0){
+	<div class="modal-body">
+		<div class="card lesson-border">
+			<div class="card-body">
+				<h5 class="card-title">Results</h5>
+				<p class="card-text"><span>Correct Answers: </span>{{correctAnswers.length}}</p>
+				<p class="card-text"><span>Wrong Answers: </span>{{(angularQuizQns.length -
+					correctAnswers.length)-missingQuestion.length }}</p>
+				<p class="card-text"><span>Missing Questions: </span>{{missingQuestion.length}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Check Your wrong
+			Answers</button>
+		<button type="button" class="btn btn-outline-danger" (click)="onContinue()">Continue</button>
+	</div>
+	}
 </div>
