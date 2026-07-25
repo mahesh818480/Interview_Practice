@@ -1,7 +1,7 @@
 <div class="category d-flex justify-content-around mb-4">
-    <button (click)="questionCategory('esay')">Easy</button>
-    <button (click)="questionCategory('medium')">Medium</button>
-    <button (click)="questionCategory('advanced')">Advanced</button>
+    <button (click)="questionCategory('esay')" [ngStyle]="selectCategory == 'esay' ? {'color': '#fff', 'background-color': '#36af5c'} : {}">Easy</button>
+    <button (click)="questionCategory('medium')"[ngStyle]="selectCategory == 'medium' ? {'color': '#fff', 'background-color': '#d7d028'} : {}">Medium</button>
+    <button (click)="questionCategory('advanced')"[ngStyle]="selectCategory == 'advanced' ? {'color': '#fff', 'background-color': '#b31d39ed'} : {}">Advanced</button>
 </div>
 <div class="questions w-75 m-auto p-2">
     <h4 class="text-center text-decoration-underline m-4 text-underline">Angular Quiz</h4>

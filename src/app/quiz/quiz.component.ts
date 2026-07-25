@@ -21,6 +21,7 @@ export class QuizComponent {
   correctAnswers: any = [];
   isSubmited = false;
   missingQuestion: any = [];
+  selectCategory: string='esay';
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -57,6 +58,7 @@ export class QuizComponent {
 
   }
   questionCategory(category: string) {
+    this.selectCategory=category
     switch (category) {
       case 'esay':
         this.angularQuizQns = [...QUIZQUESTIONS.slice(0, 25)];

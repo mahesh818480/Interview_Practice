@@ -1,4 +1,6 @@
-export const mediumQuestionsPart1 = [
+import { ANGULARQUIZ } from "./angular-quiz";
+
+export const mediumQuestionsPart1:ANGULARQUIZ[] = [
   {
     id: 1,
     question: "Which RxJS operator cancels the previous inner Observable when a new value is emitted?",
