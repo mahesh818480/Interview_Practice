@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { InterviewComponent } from './interview/interview.component';
 
 @Component({
@@ -10,4 +10,12 @@ import { InterviewComponent } from './interview/interview.component';
 })
 export class AppComponent {
   title = 'interview-practice';
+  top:any;
+  left:any;
+
+  @HostListener("document:mousemove",['$event'])
+  onMousemove($event:any){
+    this.top= ($event.pageY-40)+"px";
+    this.left= ($event.pageX)+"px";
+  }
 }

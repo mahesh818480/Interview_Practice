@@ -1,0 +1,13 @@
+.cursor {
+    position: absolute;
+}
+
+.cursor::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 99;
+    background: #0c44f6;
+}
